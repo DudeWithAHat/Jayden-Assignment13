@@ -1,6 +1,6 @@
 //Jayden Campbell
 //CIS 1202 101
-//March 26, 2021
+//April 10th, 2021
 
 #include "Publication.h"
 #include "StandardHFile.h"
@@ -124,6 +124,7 @@ int getMenuChoice() {
     return temp;
 }
 
+//Recieves a directory and a file name. Continues to recieve input until there is either no more input, or the publications array is filled.
 void getPublications(Publication publication[], int& size, int maxSize) {
     string directory;
     string fileName;
@@ -160,12 +161,14 @@ void getPublications(Publication publication[], int& size, int maxSize) {
         cout << "Failed to load file.\n";
 }
 
+//Displays info for all publications in an array.
 void showPublications(Publication publication[], int size) {
     for (int i = 0; i < size; i++) {
         publication[i].displayInfo();
     }
 }
 
+//Displays ttles for all publications in an array.
 void showTitles(Publication publication[], int size) {
     for (int i = 0; i < size; i++) {
         cout << publication[i].getTitle() << endl;
@@ -173,6 +176,7 @@ void showTitles(Publication publication[], int size) {
     cout << endl;
 }
 
+//Finds a publication (case-insensitive), and returns the location of said publication.
 int findPublication(Publication publication[], int size, string titleChoice) {
     for (int i = 0; i < size; i++) {
         string lowerTitle = publication[i].getTitle();
